@@ -31,7 +31,7 @@ class MemberServiceIntegrationTest {
     void join() {
         // given 임무
         Member member = new Member();
-        member.setName("hello1");
+        member.setName("hello13");
 
         // when 실행
         Long saveId = memberService.join(member);
