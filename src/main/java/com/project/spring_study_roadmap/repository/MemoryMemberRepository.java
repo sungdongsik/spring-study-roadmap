@@ -1,6 +1,7 @@
 package com.project.spring_study_roadmap.repository;
 
 import com.project.spring_study_roadmap.domain.Member;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
