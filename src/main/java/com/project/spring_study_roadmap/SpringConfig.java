@@ -1,6 +1,7 @@
 package com.project.spring_study_roadmap;
 
 import com.project.spring_study_roadmap.repository.JdbcMemberRepository;
+import com.project.spring_study_roadmap.repository.JdbcTemplateMemberRepository;
 import com.project.spring_study_roadmap.repository.MemberRepository;
 import com.project.spring_study_roadmap.repository.MemoryMemberRepository;
 import com.project.spring_study_roadmap.service.MemberService;
@@ -27,6 +28,7 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository(){
-        return new JdbcMemberRepository(dataSource);
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
