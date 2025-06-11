@@ -1,7 +1,13 @@
 package com.project.spring_study_roadmap.domain;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     public String getName() {

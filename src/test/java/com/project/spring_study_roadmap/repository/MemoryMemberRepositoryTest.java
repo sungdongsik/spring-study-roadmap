@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ class MemoryMemberRepositoryTest {
 
 
     @Test
+    @Commit
     public void save(){
         Member member = new Member();
         member.setName("spring");
