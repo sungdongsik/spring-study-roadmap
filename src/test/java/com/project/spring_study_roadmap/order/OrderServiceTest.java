@@ -1,18 +1,27 @@
 package com.project.spring_study_roadmap.order;
 
+import com.project.spring_study_roadmap.AppConfig;
 import com.project.spring_study_roadmap.member.Grade;
 import com.project.spring_study_roadmap.member.Member;
 import com.project.spring_study_roadmap.member.MemberService;
 import com.project.spring_study_roadmap.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {
