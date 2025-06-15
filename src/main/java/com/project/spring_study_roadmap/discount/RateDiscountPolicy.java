@@ -2,7 +2,9 @@ package com.project.spring_study_roadmap.discount;
 
 import com.project.spring_study_roadmap.member.Grade;
 import com.project.spring_study_roadmap.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
