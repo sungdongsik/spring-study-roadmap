@@ -1,10 +1,14 @@
 package com.project.spring_study_roadmap.discount;
 
+import com.project.spring_study_roadmap.annotation.MainDiscountPolicy;
 import com.project.spring_study_roadmap.member.Grade;
 import com.project.spring_study_roadmap.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;

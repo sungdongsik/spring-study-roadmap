@@ -9,6 +9,7 @@ import com.project.spring_study_roadmap.member.MemberServiceImpl;
 import com.project.spring_study_roadmap.member.MemoryMemberRepository;
 import com.project.spring_study_roadmap.order.OrderService;
 import com.project.spring_study_roadmap.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,6 +33,7 @@ public class AppConfig {
     public OrderService orderService(){
         System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
+        //return null;
     }
 
     @Bean
