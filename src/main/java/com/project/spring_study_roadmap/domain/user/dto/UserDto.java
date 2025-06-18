@@ -2,6 +2,7 @@ package com.project.spring_study_roadmap.domain.user.dto;
 
 
 import com.project.spring_study_roadmap.domain.user.enitiy.UserEntity;
+import com.project.spring_study_roadmap.glabal.util.RoleEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -41,7 +42,7 @@ public class UserDto {
                 .userEmail(this.email)
                 .userName(this.name)
                 .userPass(this.password)
-                .role(this.role)
+                .role(RoleEnum.USER.getValue())
                 .build();
     }
 }

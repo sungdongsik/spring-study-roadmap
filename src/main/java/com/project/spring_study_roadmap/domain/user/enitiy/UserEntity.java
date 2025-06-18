@@ -3,6 +3,8 @@ package com.project.spring_study_roadmap.domain.user.enitiy;
 import com.project.spring_study_roadmap.glabal.util.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -15,13 +17,15 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "tb_user")
+@Getter
+@NoArgsConstructor
 public class UserEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
     /** 사용자 고유 식별자 */
-    private Long userId = 1L;
+    private Long userId;
 
     /** 사용자 이메일 */
     private String userEmail;

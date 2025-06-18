@@ -25,11 +25,11 @@ public class ApiResponse<T> {
     }
 
 
-    public static <T> ApiResponse<T> success(T data, ResponseMessage responseMessage){
-        return new ApiResponse<>(true, data, responseMessage.getMessage());
+    public static <T> ApiResponse<T> success(T data, ResponseMessageEnum responseMessageEnum){
+        return new ApiResponse<>(true, data, responseMessageEnum.getMessage());
     }
 
-    public static <T> ApiResponse<T> fail(ResponseMessage responseMessage){
-        return new ApiResponse<>(false, null, responseMessage.getMessage());
+    public static <T> ApiResponse<T> fail(ResponseMessageEnum responseMessageEnum){
+        return new ApiResponse<>(false, null, responseMessageEnum.getMessage());
     }
 }
