@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-study-roadmap
+
+  datasource:
+    url: jdbc:mariadb://localhost:3306/basic
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none

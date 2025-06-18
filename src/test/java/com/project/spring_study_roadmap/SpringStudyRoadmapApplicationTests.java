@@ -9,5 +9,4 @@ class SpringStudyRoadmapApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
