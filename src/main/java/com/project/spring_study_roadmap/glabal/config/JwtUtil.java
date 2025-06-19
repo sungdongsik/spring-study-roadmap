@@ -3,6 +3,7 @@ package com.project.spring_study_roadmap.glabal.config;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -10,7 +11,8 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = "qwF0r-hPgW301pEr756XZ2EVMz4zFH1hBawdJY92DQg";
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
     private final long ACCESS_TOKEN_EXPIRE = 1000 * 60 * 15;  // 15분
     private final long REFRESH_TOKEN_EXPIRE = 1000 * 60 * 60 * 24 * 7;  // 7일
 
