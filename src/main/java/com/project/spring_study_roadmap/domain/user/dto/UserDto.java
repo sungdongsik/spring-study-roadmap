@@ -26,28 +26,28 @@ public class UserDto {
     /** 사용자 이메일 */
     @NotBlank
     @Email
-    private String email;
+    private String userEmail;
 
     /** 사용자 이름 */
-    private String name;
+    private String userName;
 
     /** 사용자 비밀번호 (평문 또는 암호화된 상태로 전송) */
     @NotBlank
     @Size(min = 4, message = "비밀번호는 최소 4자 이상이어야 합니다.")
-    private String password;
+    private String userPassword;
 
     /** 사용자 역할 (예: ROLE_USER, ROLE_ADMIN) */
     private String role;
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public static UserDto from(UserEntity userEntity){
         UserDto dto = new UserDto();
         dto.userId = userEntity.getUserId();
-        dto.email = userEntity.getUserEmail();
-        dto.name = userEntity.getUserName();
+        dto.userEmail = userEntity.getUserEmail();
+        dto.userName = userEntity.getUserName();
         dto.role = userEntity.getRole();
         return dto;
     }
@@ -59,9 +59,9 @@ public class UserDto {
     public UserEntity toEntity(){
         return UserEntity.builder()
                 .userId(this.userId)
-                .userEmail(this.email)
-                .userName(this.name)
-                .userPass(this.password)
+                .userEmail(this.userEmail)
+                .userName(this.userName)
+                .userPass(this.userPassword)
                 .role(RoleEnum.USER.getValue())
                 .build();
     }

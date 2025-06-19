@@ -1,7 +1,6 @@
 package com.project.spring_study_roadmap.domain.user.repository;
 
 import com.project.spring_study_roadmap.domain.user.dto.UserDto;
-import com.project.spring_study_roadmap.domain.user.enitiy.QUserEntity;
 import com.project.spring_study_roadmap.domain.user.enitiy.UserEntity;
 import com.project.spring_study_roadmap.glabal.QueryDslSupport;
 import com.querydsl.core.BooleanBuilder;
@@ -34,8 +33,8 @@ public class UserRepositoryDslImpl extends QueryDslSupport implements UserReposi
     private BooleanBuilder booleanBuilder(UserDto userDto){
         BooleanBuilder booleanBuilder = new BooleanBuilder();
 
-        if (StringUtils.isNotBlank(userDto.getEmail())){
-            booleanBuilder.and(userEntity.userEmail.eq(userDto.getEmail()));
+        if (StringUtils.isNotBlank(userDto.getUserEmail())){
+            booleanBuilder.and(userEntity.userEmail.eq(userDto.getUserEmail()));
         }
 
         return booleanBuilder;
