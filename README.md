@@ -8,6 +8,8 @@
 2. study_link
    - **study_link**: CRUD 기반으로 작성된 코드가 포함된 브랜치입니다. 
 
+3. jpa_basic
+   - **jpa_basic**: JPA 기반으로 작성된 코드가 포함된 브랜치입니다.
 
 # ✅ 패키지 구조
 ````
