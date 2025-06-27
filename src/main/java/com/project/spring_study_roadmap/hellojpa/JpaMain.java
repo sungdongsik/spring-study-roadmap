@@ -24,14 +24,62 @@ public class JpaMain {
             //em.persist(member);
             //member.setName("helloJpa");
 
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(0)
-                    .setMaxResults(10)
-                    .getResultList();
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .setFirstResult(0)
+//                    .setMaxResults(10)
+//                    .getResultList();
 
-            for (Member member : result) {
+            /*for (Member member : result) {
                 System.out.println("member = " + member.getId());
-            }
+            }*/
+
+            // 비영속
+            /*Member member = new Member();
+            member.setId(101L);
+            member.setName("HelloJpa");
+
+            // 영속성
+            System.out.println("==BEFORE==");
+            em.persist(member);
+            System.out.println("==AFTER==");*/
+
+            /*Member findMember1 = em.find(Member.class, 101L);
+            Member findMember2 = em.find(Member.class, 101L);
+
+            System.out.println("id: " + findMember1.getId());
+            System.out.println("name: " + findMember1.getName());
+
+            System.out.println("id: " + findMember2.getId());
+            System.out.println("name: " + findMember2.getName());*/
+
+
+
+            /*Member member1 = new Member(150L, "A");
+            Member member2 = new Member(160L, "B");
+            */
+            /*em.persist(member1);
+            em.persist(member2);*/
+
+            /*Member member1 = em.find(Member.class, 150L);
+            member1.setName("ZZZZZ");*/
+
+            /*Member member = new Member(200L, "member200");
+            em.persist(member);
+
+            em.flush();*/
+
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAAA");
+
+            //em.detach(member);
+            // 영속성 컨테스트 통으로 지워버림
+            em.clear();
+
+            Member member2 = em.find(Member.class, 150L);
+            member.setName("AAAAA");
+
+            System.out.println("========");
+
 
 
             tx.commit();
