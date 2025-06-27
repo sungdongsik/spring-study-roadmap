@@ -8,8 +8,17 @@
 2. study_link
    - **study_link**: CRUD 기반으로 작성된 코드가 포함된 브랜치입니다. 
 
-3. jpa_basic
-   - **jpa_basic**: JPA 기반으로 작성된 코드가 포함된 브랜치입니다.
+3. jpa_basic - JPA 기반으로 작성된 코드가 포함된 브랜치입니다.
+   - JPA란: 자바 객체와 데이터베이스를 매핑해주는 ORM(Object-Relational Mapping) 기술
+   - 비영속 (Transient) – 그냥 new로 만든 객체, 아직 JPA가 모름
+   - 영속 (Persistent) – em.persist()로 등록한 객체, 영속성 컨텍스트에 저장됨
+   - 준영속 (Detached) – em.detach() 또는 em.close() 후 JPA가 관리하지 않음
+   - 삭제 (Removed) – em.remove() 호출됨
+   - 영속성 컨텍스트란?: JPA가 엔티티 객체를 저장하고 관리하는 공간 (일종의 1차 캐시), 동일한 트랜잭션 내에서 같은 ID를 가진 객체는 동일 객체(==)
+   - 1차 캐시: 같은 ID로 여러 번 조회해도 DB를 다시 조회하지 않음
+   - 변경 감지(Dirty Checking): 트랜잭션 커밋 시 변경된 필드를 자동 감지 → UPDATE 자동 실행
+   - 쓰기 지연 (Write Behind): persist()는 즉시 INSERT 하지 않음, 커밋 시점에 몰아서 실행
+   - 플러시 (Flush): SQL을 DB에 반영 (자동/수동 호출 가능)
 
 # ✅ 패키지 구조
 ````
