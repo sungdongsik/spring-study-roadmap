@@ -2,11 +2,9 @@
 1. 스프링 부트 이용한 프로젝트
 
 # Branch 종류
-1. spirng_basic
-   - **spring_basic**: 스프링 입문 강의를 기반으로 작성된 코드가 포함된 브랜치입니다.
+1. spirng_basic - 스프링 입문 강의를 기반으로 작성된 코드가 포함된 브랜치입니다.
 
-2. study_link
-   - **study_link**: CRUD 기반으로 작성된 코드가 포함된 브랜치입니다. 
+2. study_link - CRUD 기반으로 작성된 코드가 포함된 브랜치입니다.
 
 3. jpa_basic - JPA 기반으로 작성된 코드가 포함된 브랜치입니다.
    - JPA란: 자바 객체와 데이터베이스를 매핑해주는 ORM(Object-Relational Mapping) 기술
