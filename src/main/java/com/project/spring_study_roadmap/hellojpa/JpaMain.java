@@ -68,16 +68,31 @@ public class JpaMain {
 
             em.flush();*/
 
-            Member member = em.find(Member.class, 150L);
-            member.setName("AAAAA");
+            /*Member member = em.find(Member.class, 150L);
+            //member.setName("AAAAA");
 
             //em.detach(member);
             // 영속성 컨테스트 통으로 지워버림
             em.clear();
 
             Member member2 = em.find(Member.class, 150L);
-            member.setName("AAAAA");
+            //member.setName("AAAAA");*/
 
+
+            /*Member member = new Member();
+            member.setUsername("C");
+            member.setRoleType(RoleType.ADMIN);
+
+            em.persist(member);*/
+
+
+            Member2 member2 = new Member2();
+            member2.setUsername("USER");
+
+            System.out.println("===VVV");
+            em.persist(member2);
+
+            System.out.println("id: " + member2.getId());
             System.out.println("========");
 
 
