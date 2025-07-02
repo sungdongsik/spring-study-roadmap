@@ -17,7 +17,8 @@
    - 변경 감지(Dirty Checking): 트랜잭션 커밋 시 변경된 필드를 자동 감지 → UPDATE 자동 실행
    - 쓰기 지연 (Write Behind): persist()는 즉시 INSERT 하지 않음, 커밋 시점에 몰아서 실행
    - 플러시 (Flush): SQL을 DB에 반영 (자동/수동 호출 가능)
-
+   - 단방향 연관관계: Member → Team만 참조하고, Team → Member는 모름, @JoinColumn: 어떤 컬럼이 외래 키인지 지정 (TEAM_ID), @ManyToOne: 다대일 관계 설정
+   - 양방향 연관관계: Member → Team, Team → Member 양쪽 모두 참조, 주인이 되는 쪽과 아닌 쪽을 명확히 해야 함, 주인(Owner): 실제 DB의 외래 키를 관리하는 쪽 (@JoinColumn이 있는 쪽), 비주인(Inverse): 단순히 읽기만 가능, 외래 키를 직접 변경 불가, mappedBy: 비주인 쪽에서 주인을 지정하는 속성
 # ✅ 패키지 구조
 ````
 com.project.studyboard
