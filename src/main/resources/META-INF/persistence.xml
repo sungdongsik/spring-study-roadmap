@@ -7,6 +7,7 @@
         <class>com.project.spring_study_roadmap.jpashop.domain.Item</class>
         <class>com.project.spring_study_roadmap.jpashop.domain.Order</class>
         <class>com.project.spring_study_roadmap.jpashop.domain.OrderItem</class>
+        <class>com.project.spring_study_roadmap.jpashop.domain.Team</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
@@ -19,7 +20,7 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
 </persistence>
