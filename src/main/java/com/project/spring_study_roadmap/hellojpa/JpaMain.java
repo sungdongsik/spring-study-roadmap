@@ -1,6 +1,7 @@
 package com.project.spring_study_roadmap.hellojpa;
 
 import jakarta.persistence.*;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -86,15 +87,39 @@ public class JpaMain {
             em.persist(member);*/
 
 
-            Member2 member2 = new Member2();
+            /*Member2 member2 = new Member2();
             member2.setUsername("USER");
 
             System.out.println("===VVV");
             em.persist(member2);
 
-            System.out.println("id: " + member2.getId());
-            System.out.println("========");
+            System.out.println("id: " + member2.getId());*/
 
+
+            // 1차 캐시 때문에 양방향이면 값을 넣어줘야 한다.
+            // 1 : N
+            Team team = new Team();
+            team.setName("TEAM");
+            em.persist(team);
+
+            // N : 1
+            Member member = new Member();
+            member.setUsername("userA");
+            member.setTeam(team);
+
+            em.persist(member);
+
+            Member m = em.find(Member.class, member.getId());
+
+
+
+/*
+            List<Member> members = member.getTeam().getMembers();
+
+            for (Member m : members) {
+                System.out.println("m.getUsername() = " + m.getUsername());
+            }
+*/
 
 
             tx.commit();

@@ -18,29 +18,10 @@ public class Member {
     @Column(name = "name", updatable = false, nullable = false)
     private String username;
 
-    private int age;
-
-    // ORDINAL: enum 순서를 저장
-    // STRING: 이름으로 저장
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    private LocalDate testLocalDate;
-
-    private LocalDateTime testLocalDateTime;
-
-    @Lob
-    private String description;
-
-    public Member() {
-    }
-
+    // 외래키가 있는 경우 선언해주기
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -58,43 +39,12 @@ public class Member {
         this.username = username;
     }
 
-    public int getAge() {
-        return age;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public RoleType getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(RoleType roleType) {
-        this.roleType = roleType;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
     }
 }
