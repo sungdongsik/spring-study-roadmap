@@ -1,15 +1,11 @@
 package com.project.spring_study_roadmap.jpashop;
 
-import com.project.spring_study_roadmap.jpashop.domain.Member;
 import com.project.spring_study_roadmap.jpashop.domain.Order;
 import com.project.spring_study_roadmap.jpashop.domain.OrderItem;
-import com.project.spring_study_roadmap.jpashop.domain.Team;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -47,11 +43,11 @@ public class JpaMain {
 
             System.out.println("============");*/
 
-            Order order = new Order();
+            /*Order order = new Order();
             order.addOrderItem(new OrderItem());
 
             OrderItem orderItem = new OrderItem();
-            orderItem.setOrder(order);
+            orderItem.setOrder(order);*/
 
             tx.commit();
         }catch (Exception e){
