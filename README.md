@@ -19,6 +19,18 @@
    - 플러시 (Flush): SQL을 DB에 반영 (자동/수동 호출 가능)
    - 단방향 연관관계: Member → Team만 참조하고, Team → Member는 모름, @JoinColumn: 어떤 컬럼이 외래 키인지 지정 (TEAM_ID), @ManyToOne: 다대일 관계 설정
    - 양방향 연관관계: Member → Team, Team → Member 양쪽 모두 참조, 주인이 되는 쪽과 아닌 쪽을 명확히 해야 함, 주인(Owner): 실제 DB의 외래 키를 관리하는 쪽 (@JoinColumn이 있는 쪽), 비주인(Inverse): 단순히 읽기만 가능, 외래 키를 직접 변경 불가, mappedBy: 비주인 쪽에서 주인을 지정하는 속성
+   - 다대일(N:1) 단방향: 실무에서 가장 많이 사용
+   - 다대일(N:1) 양방향: @OneToMany(mappedBy = "team") 설정으로 양방향 참조, 연관관계 주인은 여전히 Member 쪽임
+   - 일대다(1:N) 단방향 : 권장되지 않음 (insert SQL 2번 나감 + 외래키가 주 테이블에 존재)
+   - 일대다(1:N) 양방향: 실제 존재하지 않음. JPA에서는 양방향을 만들기 위해 N:1 양방향을 사용하는 것이 일반적
+   - 일대일(1:1) 단방향: @OneToOne 사용, @JoinColumn으로 FK 설정.
+   - 일대일(1:1) 양방향: mappedBy를 통해 양방향 설정, 연관관계의 주인은 @JoinColumn이 있는 쪽
+   - 다대다(M:N) 단방향: 중간 테이블을 자동으로 생성하지만 실무에서는 잘 사용하지 않음
+   - 다대다(M:N) 양방향: 위 단방향과 유사하며 mappedBy 설정
+
+
+
+
 # ✅ 패키지 구조
 ````
 com.project.studyboard
