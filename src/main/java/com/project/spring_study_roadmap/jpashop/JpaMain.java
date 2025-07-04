@@ -1,5 +1,6 @@
 package com.project.spring_study_roadmap.jpashop;
 
+import com.project.spring_study_roadmap.jpashop.domain.Book;
 import com.project.spring_study_roadmap.jpashop.domain.Order;
 import com.project.spring_study_roadmap.jpashop.domain.OrderItem;
 import jakarta.persistence.EntityManager;
@@ -48,6 +49,14 @@ public class JpaMain {
 
             OrderItem orderItem = new OrderItem();
             orderItem.setOrder(order);*/
+
+            Book book = new Book();
+
+            book.setName("jpa");
+            book.setAuthor("김영하");
+
+            em.persist(book);
+
 
             tx.commit();
         }catch (Exception e){

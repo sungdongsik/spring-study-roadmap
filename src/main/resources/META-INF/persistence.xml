@@ -10,6 +10,9 @@
         <class>com.project.spring_study_roadmap.jpashop.domain.Team</class>
         <class>com.project.spring_study_roadmap.jpashop.domain.Delivery</class>
         <class>com.project.spring_study_roadmap.jpashop.domain.Category</class>
+        <class>com.project.spring_study_roadmap.jpashop.domain.Album</class>
+        <class>com.project.spring_study_roadmap.jpashop.domain.Book</class>
+        <class>com.project.spring_study_roadmap.jpashop.domain.Movie</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
