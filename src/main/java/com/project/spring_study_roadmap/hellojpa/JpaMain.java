@@ -98,7 +98,7 @@ public class JpaMain {
 
             // 1차 캐시 때문에 양방향이면 값을 넣어줘야 한다.
             // 1 : N
-            Team team = new Team();
+            /*Team team = new Team();
             team.setName("TEAM");
             em.persist(team);
 
@@ -109,9 +109,28 @@ public class JpaMain {
 
             em.persist(member);
 
-            Member m = em.find(Member.class, member.getId());
+            Member m = em.find(Member.class, member.getId());*/
 
+            /*Movie movie = new Movie();
 
+            movie.setDirector("A");
+            movie.setActor("B");
+            movie.setName("바람과 함께 사라진다.");
+            movie.setPrice(10000);
+
+            em.persist(movie);
+
+            em.flush();
+            em.clear();
+
+            Movie findMove = em.find(Movie.class, movie.getId());
+            System.out.println("findMove = " + findMove);*/
+
+            Member member = new Member();
+            member.setCreatedBy("User1");
+            member.setUsername("hi");
+
+            em.persist(member);
 
 /*
             List<Member> members = member.getTeam().getMembers();

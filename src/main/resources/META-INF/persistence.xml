@@ -5,6 +5,10 @@
     <persistence-unit name="hello">
         <class>com.project.spring_study_roadmap.hellojpa.Member</class>
         <class>com.project.spring_study_roadmap.hellojpa.Team</class>
+        <class>com.project.spring_study_roadmap.hellojpa.Item</class>
+        <class>com.project.spring_study_roadmap.hellojpa.Album</class>
+        <class>com.project.spring_study_roadmap.hellojpa.Book</class>
+        <class>com.project.spring_study_roadmap.hellojpa.Movie</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
@@ -17,7 +21,7 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 </persistence>
