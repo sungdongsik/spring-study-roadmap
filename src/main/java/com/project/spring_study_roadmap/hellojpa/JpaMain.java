@@ -1,7 +1,6 @@
 package com.project.spring_study_roadmap.hellojpa;
 
 import jakarta.persistence.*;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -126,11 +125,11 @@ public class JpaMain {
             Movie findMove = em.find(Movie.class, movie.getId());
             System.out.println("findMove = " + findMove);*/
 
-            Member member = new Member();
+            /*Member member = new Member();
             member.setCreatedBy("User1");
             member.setUsername("hi");
 
-            em.persist(member);
+            em.persist(member);*/
 
 /*
             List<Member> members = member.getTeam().getMembers();
@@ -140,6 +139,66 @@ public class JpaMain {
             }
 */
 
+            /*Member member = em.find(Member.class, 1L);
+            //printMemberAndTeam(member);
+
+            printMember(member);*/
+
+
+            //Member findMember = em.find(Member.class, member.getId());
+            //System.out.println("findMember.getId() = " + findMember.getId());
+            //System.out.println("findMember.getUsername() = " + findMember.getUsername());
+
+            /*Member findMember = em.getReference(Member.class, member.getId());
+            System.out.println("findMember = " + findMember.getClass());
+            System.out.println("findMember.getId() = " + findMember.getId());
+            System.out.println("findMember.getUsername() = " + findMember.getUsername());
+            System.out.println("findMember.getUsername() = " + findMember.getUsername());*/
+
+            /*Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            Member member1 = new Member();
+            member1.setUsername("member1");
+            member1.setTeam(team);
+            em.persist(member1);
+
+            Member member2 = new Member();
+            member2.setUsername("member2");
+            member2.setTeam(team);
+            em.persist(member2);
+
+            em.flush();
+            em.clear();*/
+
+            //Member m = em.find(Member.class, member1.getId());
+            /*System.out.println("m.getTeam().getClass() = " + m.getTeam().getClass());
+
+            System.out.println("======");
+            System.out.println("m.getTeam().getName() = " + m.getTeam().getName()); // 객체의 값을 가져올 때 쿼리를 조회
+            System.out.println("======");*/
+
+            //List<Member> members = em.createQuery("select m from Member m join fetch m.team", Member.class).getResultList();
+
+
+
+            Child child1 = new Child();
+            Child child2 = new Child();
+
+
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
+
+            em.flush();
+            em.clear();
+
+            Parent findParent = em.find(Parent.class, parent.getId());
+            em.remove(findParent);
+//            findParent.getChildList().remove(0);
 
             tx.commit();
         }catch (Exception e){
@@ -150,5 +209,19 @@ public class JpaMain {
         }
 
         emf.close();
+    }
+
+    private static void printMember(Member member) {
+        System.out.println("member.getUsername() = " + member.getUsername());
+    }
+
+    private static void printMemberAndTeam(Member member) {
+
+        String username = member.getUsername();
+        System.out.println("username = " + username);
+
+        Team team = member.getTeam();
+        String name = team.getName();
+        System.out.println("name = " + name);
     }
 }

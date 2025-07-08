@@ -19,7 +19,7 @@ public class Member extends BaseEntity{
     private String username;
 
     // 외래키가 있는 경우 선언해주기
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // 프록시 객체로 조회
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
