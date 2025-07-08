@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Table(name = "ORDERS")
 public class Order {
@@ -18,11 +20,11 @@ public class Order {
     /*@Column(name = "MEMBER_ID")
     private Long memberId;*/
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToOne
+    @OneToOne(fetch = LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
@@ -31,7 +33,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     public Member getMember() {

@@ -2,6 +2,8 @@ package com.project.spring_study_roadmap.jpashop.domain;
 
 import jakarta.persistence.*;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 public class Delivery {
 
@@ -17,6 +19,6 @@ public class Delivery {
 
     private DeliveryStatus status;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = LAZY)
     private Order order;
 }
