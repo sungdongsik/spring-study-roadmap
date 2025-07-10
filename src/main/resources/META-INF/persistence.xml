@@ -11,6 +11,8 @@
         <class>com.project.spring_study_roadmap.hellojpa.Movie</class>
         <class>com.project.spring_study_roadmap.hellojpa.Parent</class>
         <class>com.project.spring_study_roadmap.hellojpa.Child</class>
+        <class>com.project.spring_study_roadmap.domain.User</class>
+        <class>com.project.spring_study_roadmap.domain.Study</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
