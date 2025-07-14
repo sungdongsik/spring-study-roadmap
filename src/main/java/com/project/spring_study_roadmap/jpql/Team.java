@@ -1,7 +1,6 @@
-package com.project.spring_study_roadmap.hellojpa;
+package com.project.spring_study_roadmap.jpql;
 
 import jakarta.persistence.*;
-import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +10,20 @@ public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TEAM_ID")
     private Long id;
 
     private String name;
 
-    // 양방향
-    /*@OneToMany(mappedBy = "team")
-    private List<Member> members = new ArrayList<>();*/
+    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+    private List<Member> members = new ArrayList<>();
+
+    public List<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Member> members) {
+        this.members = members;
+    }
 
     public Long getId() {
         return id;
@@ -35,12 +40,4 @@ public class Team {
     public void setName(String name) {
         this.name = name;
     }
-
-    /*public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
-    }*/
 }

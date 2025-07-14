@@ -1,14 +1,9 @@
-package com.project.spring_study_roadmap.hellojpa;
+package com.project.spring_study_roadmap.jpql;
 
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn
-// JOINED: 조인 전략
-// SINGLE_TABLE: 단일 테이블 전략
-// TABLE_PER_CLASS: 구현 클래스마다 테이블 전략
-public class Item {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +13,7 @@ public class Item {
 
     private int price;
 
+    private int stockAmount;
 
     public Long getId() {
         return id;
@@ -41,5 +37,13 @@ public class Item {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getStockAmount() {
+        return stockAmount;
+    }
+
+    public void setStockAmount(int stockAmount) {
+        this.stockAmount = stockAmount;
     }
 }

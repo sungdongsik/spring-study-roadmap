@@ -3,18 +3,10 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="hello">
-        <class>com.project.spring_study_roadmap.hellojpa.Member</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Team</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Item</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Album</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Book</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Movie</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Parent</class>
-        <class>com.project.spring_study_roadmap.hellojpa.Child</class>
-        <class>com.project.spring_study_roadmap.hellojpa.AddressEntity</class>
-        <class>com.project.spring_study_roadmap.domain.User</class>
-        <class>com.project.spring_study_roadmap.domain.Order</class>
-        <class>com.project.spring_study_roadmap.domain.OrderItem</class>
+        <class>com.project.spring_study_roadmap.jpql.Member</class>
+        <class>com.project.spring_study_roadmap.jpql.Order</class>
+        <class>com.project.spring_study_roadmap.jpql.Team</class>
+        <class>com.project.spring_study_roadmap.jpql.Product</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
