@@ -1,6 +1,9 @@
 package com.project.spring_study_roadmap.hellojpa;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 import java.util.List;
 import java.util.Set;
@@ -218,7 +221,7 @@ public class JpaMain {
 
  //           member.getHomeAddress().setCity("newCity");
 
-            Member member = new Member();
+            /*Member member = new Member();
             member.setUsername("member1");
             member.setHomeAddress(new Address("homeCity1", "street", "10000"));
 
@@ -247,7 +250,24 @@ public class JpaMain {
             findMember.getAddressHistory().remove(new AddressEntity("old1", "street", "1000"));
             findMember.getAddressHistory().add(new AddressEntity("newOld1", "street", "1000"));
 
-            System.out.println("==== end ====");
+            System.out.println("==== end ====");*/
+
+            /*List<Member> members = em.createQuery(
+                    "select m from Member m where m.username like '%kim%'", Member.class
+            ).getResultList();
+
+            for (Member member : members) {
+                System.out.println("member = " + member.getUsername());
+            }*/
+
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Member> query = cb.createQuery(Member.class);
+
+            Root<Member> m = query.from(Member.class);
+
+            CriteriaQuery<Member> cg = query.select(m).where(cb.equal(m.get("username"), "kim"));
+            List<Member> members = em.createQuery(cg).getResultList();
+
 
             tx.commit();
         }catch (Exception e){
