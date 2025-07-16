@@ -2,6 +2,7 @@ package com.project.spring_study_roadmap.jpql;
 
 import jakarta.persistence.*;
 
+import java.util.Collections;
 import java.util.List;
 
 public class JpaMain {
@@ -41,21 +42,34 @@ public class JpaMain {
 
             //MemberDTO memberDTO = resultList.get(0);
 
-            Team team = new Team();
-            team.setName("teamA");
+            Team team1 = new Team();
+            team1.setName("teamA");
 
-            em.persist(team);
+            Team team2 = new Team();
+            team2.setName("teamB");
 
-            Member member = new Member();
-            member.setUsername("관리자");
-            member.setAge(10);
-            member.setTeam(team);
+            em.persist(team1);
+            em.persist(team2);
 
-            em.persist(member);
+            Member member1 = new Member();
+            member1.setUsername("member1");
+            member1.setAge(10);
+            member1.setTeam(team1);
+            em.persist(member1);
+
+            Member member2 = new Member();
+            member2.setUsername("member2");
+            member2.setAge(20);
+            member2.setTeam(team2);
+            em.persist(member2);
+
+            Member member3 = new Member();
+            member3.setUsername("member3");
+            member3.setAge(20);
+            member3.setTeam(team2);
+            em.persist(member3);
 
 
-            em.flush();
-            em.clear();
             /*String query = "select m from Member m left join Team t on m.username = t.name";
 
             List<Member> resultList = em.createQuery(query, Member.class)
@@ -67,12 +81,39 @@ public class JpaMain {
                                         "end " +
                     "from Member m";*/
 
-            String query = "select nullif(m.username, '관리자') as username from Member m";
-            List<String> resultList = em.createQuery(query, String.class).getResultList();
+            /*String query = "select m from Member m where m.team = :team";
+            List<Member> resultList = em.createQuery(query, Member.class)
+                    .setParameter("team", team1)
+                    .getResultList();
 
-            for (String s : resultList) {
-                System.out.println("s = " + s);
-            }
+            System.out.println("resultList = " + resultList.size());
+
+            for (Member team : resultList) {
+                System.out.println("team = " + team);
+
+                *//*for (Member m : team.getMembers()){
+                    System.out.println("m = " + m);
+                }*//*
+            }*/
+
+            /*List<Member> members = em.createNamedQuery("Member.findByUsername", Member.class)
+                    .setParameter("username", "회원1")
+                    .getResultList();
+
+            for (Member member : members) {
+                System.out.println("member = " + member);
+            }*/
+
+            int resultCount = em.createQuery("update Member m set m.age = 20").executeUpdate();
+
+            //em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member1.getId());
+
+            System.out.println("findMember.getAge() = " + findMember.getAge());
+
+            System.out.println("resultCount = " + resultCount);
 
             tx.commit();
         }catch (Exception e){
