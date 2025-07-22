@@ -10,8 +10,8 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
-    show-sql: true
+      ddl-auto: update  # 애플리케이션 실행 시 테이블 자동 생성
+    show-sql: true      # 실행되는 SQL 로그 출력
     properties:
       hibernate:
         format_sql: true

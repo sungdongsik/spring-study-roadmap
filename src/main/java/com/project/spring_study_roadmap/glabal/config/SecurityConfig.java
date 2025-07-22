@@ -1,3 +1,4 @@
+/*
 package com.project.spring_study_roadmap.glabal.config;
 
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import static org.springframework.security.config.Customizer.*;
 
+*/
 /**
  * 25.06.18 Spring Security 설정 클래스
  * Spring Boot 3.x 이상의 환경에 맞춰 SecurityFilterChain을 구성합니다.
@@ -22,7 +24,8 @@ import static org.springframework.security.config.Customizer.*;
  * - 인증 없이 접근 가능한 경로 설정 (/api/auth/**, OPTIONS 요청 등)
  * - 그 외 요청은 인증 필요
  * - CORS 정책은 별도의 Bean으로 구성하여 프론트엔드와의 연동을 지원합니다.
- */
+ *//*
+
 
 
 @Configuration
@@ -58,3 +61,4 @@ public class SecurityConfig {
         return source;
     }
 }
+*/
