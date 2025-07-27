@@ -4,16 +4,17 @@ import com.project.spring_study_roadmap.domain.user.dto.UserDto;
 import com.project.spring_study_roadmap.domain.user.enitiy.UserEntity;
 import com.project.spring_study_roadmap.domain.user.repository.UserRepository;
 import com.project.spring_study_roadmap.glabal.error.DuplicationException;
+import com.project.spring_study_roadmap.glabal.error.GlobalExceptionHandler;
 import com.project.spring_study_roadmap.glabal.util.ResponseMessageEnum;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+/*import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;*/
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,10 +29,10 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class UserService implements UserDetailsService {
+public class UserService /*implements UserDetailsService*/ {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    //private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public UserDto register(@Valid UserDto userDto){
@@ -40,13 +41,13 @@ public class UserService implements UserDetailsService {
             throw new DuplicationException(ResponseMessageEnum.DUPLICATION_ERROR.getMessage());
         }
 
-        userDto.setUserPassword(passwordEncoder.encode(userDto.getUserPassword()));
+        //userDto.setUserPassword(passwordEncoder.encode(userDto.getUserPassword()));
         UserEntity entity = userRepository.save(userDto.toEntity());
 
         return UserDto.from(entity);
     }
 
-    @Override
+    /*@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
         UserEntity user = userRepository.findByUserEmailAndDelYnFalse(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -60,5 +61,5 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         return UserDto.from(userEntity);
-    }
+    }*/
 }

@@ -1,7 +1,10 @@
 package com.project.spring_study_roadmap.glabal.util;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * 25.06.18  API 응답 포맷 클래스입니다.
@@ -10,6 +13,8 @@ import lombok.Getter;
  */
 
 @Getter
+@Setter
+@NoArgsConstructor
 public class ApiResponse<T> {
 
     private boolean success;

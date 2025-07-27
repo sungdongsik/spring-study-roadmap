@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 25.06.18 전역 예외 처리 클래스
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 
 @ControllerAdvice
-@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
